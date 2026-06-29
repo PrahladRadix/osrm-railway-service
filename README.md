@@ -29,7 +29,13 @@ Railway will build from:
 Dockerfile
 ```
 
-The Dockerfile installs `curl` because the base OSRM image does not include `wget`. The image currently uses Debian Stretch, so the Dockerfile points apt to `archive.debian.org` before installing curl.
+The Dockerfile uses OSRM's official GitHub Container Registry image:
+
+```txt
+ghcr.io/project-osrm/osrm-backend:latest
+```
+
+OSRM's own quick-start docs use `ghcr.io/project-osrm/osrm-backend` for preprocessing and serving. The Dockerfile installs `curl` because the container needs to download the configured PBF at runtime.
 
 Set env vars:
 
