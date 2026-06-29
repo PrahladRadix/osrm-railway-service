@@ -23,7 +23,7 @@ fi
 
 if [ ! -f "$PBF_FILE" ]; then
   echo "Downloading OSM PBF from $PBF_URL"
-  wget -O "$PBF_FILE" "$PBF_URL"
+  curl -fL --retry 3 --retry-delay 5 -o "$PBF_FILE" "$PBF_URL"
 else
   echo "Using existing PBF: $PBF_FILE"
 fi

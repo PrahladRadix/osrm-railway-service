@@ -29,6 +29,8 @@ Railway will build from:
 Dockerfile
 ```
 
+The Dockerfile installs `curl` because the base OSRM image does not include `wget`.
+
 Set env vars:
 
 ```txt
