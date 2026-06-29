@@ -29,7 +29,7 @@ Railway will build from:
 Dockerfile
 ```
 
-The Dockerfile installs `curl` because the base OSRM image does not include `wget`.
+The Dockerfile installs `curl` because the base OSRM image does not include `wget`. The image currently uses Debian Stretch, so the Dockerfile points apt to `archive.debian.org` before installing curl.
 
 Set env vars:
 
