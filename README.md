@@ -38,10 +38,13 @@ PBF_URL=https://download2.bbbike.org/osm/extract/planet_76.029,10.075_77.921,11.
 OSRM_PROFILE=/opt/car.lua
 OSRM_BASENAME=map
 OSRM_ALGORITHM=mld
+OSRM_THREADS=1
 FORCE_REBUILD=false
 ```
 
 Railway provides `PORT` automatically.
+
+Keep `OSRM_THREADS=1` on Railway. Without it, `osrm-extract` may detect many CPUs and use too much memory, causing Railway to kill the container during preprocessing.
 
 ## Map File
 

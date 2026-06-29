@@ -6,6 +6,7 @@ PBF_URL="${PBF_URL:-${OSM_PBF_URL:-}}"
 OSRM_PROFILE="${OSRM_PROFILE:-/opt/car.lua}"
 OSRM_BASENAME="${OSRM_BASENAME:-map}"
 OSRM_ALGORITHM="${OSRM_ALGORITHM:-mld}"
+OSRM_THREADS="${OSRM_THREADS:-1}"
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
 if [ -z "$PBF_URL" ]; then
@@ -30,7 +31,7 @@ fi
 
 if [ ! -f "$OSRM_FILE" ]; then
   echo "Extracting OSRM graph with profile $OSRM_PROFILE"
-  osrm-extract -p "$OSRM_PROFILE" "$PBF_FILE"
+  osrm-extract --threads "$OSRM_THREADS" -p "$OSRM_PROFILE" "$PBF_FILE"
 
   if [ "$OSRM_ALGORITHM" = "ch" ]; then
     echo "Contracting OSRM graph with CH"
